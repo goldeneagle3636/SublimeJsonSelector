@@ -1,0 +1,12 @@
+[
+  {
+    "caption": "JSON selector",
+    "id": "jsonSelector",
+    "children": [
+      {
+        "caption": "Copy Path",
+        "command": "copyPath"
+      }
+    ]
+  }
+]
