@@ -1,13 +1,10 @@
-
 import sublime
 import sys
 from unittest import TestCase
 
 version = sublime.version()
 
-
-# for testing sublime command
-class TestHelloWorld(TestCase):
+class TestJsonSelector(TestCase):
 
     def setUp(self):
         self.view = sublime.active_window().new_file()
@@ -21,22 +18,8 @@ class TestHelloWorld(TestCase):
             self.view.window().focus_view(self.view)
             self.view.window().run_command("close_file")
 
-    def setText(self, string):
-        self.view.run_command("insert", {"characters": string})
-
-    def getRow(self, row):
-        return self.view.substr(self.view.line(self.view.text_point(row, 0)))
-
-    # since ST3 uses python 2 and python 2 doesn't support @unittest.skip,
-    # we have to do primitive skipping
-    if version >= '3000':
-        def test_hello_world_st3(self):
-            self.view.run_command("hello_world")
-            first_row = self.getRow(0)
-            self.assertEqual(first_row, "hello world")
-
-    def test_hello_world(self):
+    def test_copypath(self):
         self.setText("new ")
-        self.view.run_command("hello_world")
+        self.view.run_command("copypath")
         first_row = self.getRow(0)
         self.assertEqual(first_row, "new hello world")
