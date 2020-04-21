@@ -5,7 +5,7 @@
     "children": [
       {
         "caption": "Copy Path",
-        "command": "copyPath"
+        "command": "copypath"
       }
     ]
   }
